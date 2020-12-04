@@ -1,0 +1,41 @@
+body {
+    background-color: #EFEFEF;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#main-game {
+    width: 600px;
+    background-color: #1d58a7;
+    margin: 0 auto;
+    color: white;
+    padding: 25px;
+}
+
+#score-board {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.scoreBoardElement {
+    width: 50%;
+    background-color: #1b2a7a;
+}
+
+.score-title {
+    font-size: 1.5em;
+}
+
+.score {
+    font-size: 4em;
+}
+
+#buttons {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+button {
+    font-family: 'Noto Sans', sans-serif;
+}

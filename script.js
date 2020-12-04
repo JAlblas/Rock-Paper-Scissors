@@ -13,39 +13,76 @@ function playerGuess() {
     return answer;
 }
   
-function playRound() {
-    const playerSelection = playerGuess();
+function playRound(playerSelection) {
     const computerSelection = computerGuess();
+    let result = "";
 
     if (playerSelection === computerSelection) {
-        return "draw";
+        result = "draw";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return "lost";
+        result = "lost";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "win";
+        result = "win";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "lost";
+        result = "lost";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "win";
+        result = "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "lost";
+        result = "lost";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "win";
-    }
-}
-
-function playGame() {
-    let score = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const result = playRound();
-        if (result === "win") {
-            score++; 
-        }
-        console.log(score);
+        result = "win";
     }
 
-    console.log("Final score: " + score);
+    if (result === "win") {
+        playerScore++; 
+    } else if (result === "lost") {
+        computerScore++;
+    }
+
+    playerScoreText.textContent = playerScore.toString();
+    computerScoreText.textContent = computerScore.toString();
+
+    if (playerScore === 5) {
+        alert("You win!");
+        resetGame();
+    } else if (computerScore === 5) {
+        alert("You lost!");
+        resetGame();
+    }
+
+    
 }
 
-playGame();
+function setupUI() {
+    const rockButton = document.querySelector('#rock');
+    rockButton.addEventListener('click', () => {
+        playRound("rock");
+    });
+
+    const paperButton = document.querySelector('#paper');
+    paperButton.addEventListener('click', () => {
+        playRound("paper");
+    });
+
+    const scissorsButton = document.querySelector('#scissors');
+    scissorsButton.addEventListener('click', () => {
+        playRound("scissors");
+    });
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+
+    playerScoreText.textContent = playerScore.toString();
+    computerScoreText.textContent = computerScore.toString();
+}
+
+let playerScoreText = document.querySelector('#playerScore');
+let computerScoreText = document.querySelector('#computerScore');
+
+let playerScore = 0;
+let computerScore = 0;
+
+setupUI();
+//playGame();
