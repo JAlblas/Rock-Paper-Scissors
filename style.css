@@ -1,14 +1,16 @@
 body {
-    background-color: #EFEFEF;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     font-family: 'Noto Sans', sans-serif;
 }
 
 #main-game {
     width: 600px;
-    background-color: #1d58a7;
+    background-color: #184fb4;
     margin: 0 auto;
     color: white;
     padding: 25px;
+    border-radius: 5px;
 }
 
 #score-board {
@@ -19,7 +21,7 @@ body {
 
 .scoreBoardElement {
     width: 50%;
-    background-color: #1b2a7a;
+    background-color: #5098eb63;
 }
 
 .score-title {
